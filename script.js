@@ -1,6 +1,15 @@
 const calcScreen = document.querySelector('.calculator-screen');
 
 const allClearButton = document.querySelector('.all-clear');
+const addButton = document.querySelector('.addButton');
+const subtractButton = document.querySelector('.subtractButton');
+const multiplyButton = document.querySelector('.multiplyButton');
+const divideButton = document.querySelector('.divideButton');
+const percentageButton = document.querySelector('.percentageButton');
+const openParenthesisButton = document.querySelector('.openParenthesisButton');
+const closeParenthesisButton = document.querySelector('.closeParenthesisButton');
+const pointButton = document.querySelector('.pointButton');
+
 
 const numButton0 = document.querySelector('.num0');
 const numButton1 = document.querySelector('.num1');
@@ -21,44 +30,94 @@ allClearButton.onclick = function(){
 }
 
 numButton0.onclick = function(){
-    appendNum('0');
+    appendUserChoice('0');
 }
 
 numButton1.onclick = function(){
-    appendNum('1');
+    appendUserChoice('1');
 }
 
 numButton2.onclick = function(){
-    appendNum('2');
+    appendUserChoice('2');
 }
 
 numButton3.onclick = function(){
-    appendNum('3');
+    appendUserChoice('3');
 }
 
 numButton4.onclick = function(){
-    appendNum('4');
+    appendUserChoice('4');
 }
 
 numButton5.onclick = function(){
-    appendNum('5');
+    appendUserChoice('5');
 }
 
 numButton6.onclick = function(){
-    appendNum('6');
+    appendUserChoice('6');
 }
 
 numButton7.onclick = function(){
-    appendNum('7');
+    appendUserChoice('7');
 }
 
 numButton8.onclick = function(){
-    appendNum('8');
+    appendUserChoice('8');
 }
 
 numButton9.onclick = function(){
-    appendNum('9');
+    appendUserChoice('9');
 }
+
+
+addButton.onclick = function(){
+    const userSelect = calcScreen.value;
+    appendUserChoice(' + ');
+    console.log(userSelect)
+}
+
+subtractButton.onclick = function(){
+    appendUserChoice(' - ');
+    
+}
+
+multiplyButton.onclick = function(){
+    appendUserChoice(' x ');
+    
+}
+
+divideButton.onclick = function(){
+    appendUserChoice(' ÷ ');
+        
+}
+
+percentageButton.onclick = function(){
+    appendUserChoice(' % ');
+    
+}
+
+openParenthesisButton.onclick = function(){
+    appendUserChoice('(');
+        
+}
+
+closeParenthesisButton.onclick = function(){
+    appendUserChoice(')');
+            
+}
+
+pointButton.onclick = function(){
+    appendUserChoice('.');
+            
+}
+
+
+   
+
+
+
+
+
 
 
 
@@ -66,7 +125,7 @@ function replaceNum(){
     calcScreen.value = '';
 }
 
-function appendNum(number) {
+function appendUserChoice(number) {
      if (calcScreen.value == '0'){
         replaceNum();
      }
@@ -76,7 +135,27 @@ function appendNum(number) {
 
 
 
-  function resetScreen(){
+function resetScreen(){
       calcScreen.value = '0';
   }
 
+
+function operate(num1, num2){
+     
+  }
+
+function add(num1, num2){
+    return num1 + num2;
+}
+
+function subtract(num1, num2){
+    return num1 - num2;
+}
+
+function multiply(num1, num2){
+    return num1 * num2;
+}
+
+function divide(num1, num2){
+    return num1 / num2;
+}
