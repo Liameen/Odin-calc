@@ -1,5 +1,9 @@
 const calcScreen = document.querySelector('.calculator-screen');
 
+let num1 = '';
+let num2 = '';
+let operator = '';
+
 const allClearButton = document.querySelector('.all-clear');
 const addButton = document.querySelector('.addButton');
 const subtractButton = document.querySelector('.subtractButton');
@@ -9,6 +13,7 @@ const percentageButton = document.querySelector('.percentageButton');
 const openParenthesisButton = document.querySelector('.openParenthesisButton');
 const closeParenthesisButton = document.querySelector('.closeParenthesisButton');
 const pointButton = document.querySelector('.pointButton');
+const equalButton = document.querySelector('.equalButton');
 
 
 const numButton0 = document.querySelector('.num0');
@@ -70,69 +75,102 @@ numButton9.onclick = function(){
 }
 
 
+
+//operator buttons
+
 addButton.onclick = function(){
-    const userSelect = calcScreen.value;
-    appendUserChoice(' + ');
-    console.log(userSelect)
+     num1 = calcScreen.value;
+
+     operator = '+';
+    wipeScreen();
+    console.log(num1);
+    console.log(operator)
+    
 }
 
 subtractButton.onclick = function(){
-    appendUserChoice(' - ');
+    num1 = calcScreen.value;
+
+    operator = '-';
+   wipeScreen();
+   console.log(num1);
+   console.log(operator)
+    
     
 }
 
 multiplyButton.onclick = function(){
-    appendUserChoice(' x ');
+    num1 = calcScreen.value;
+
+    operator = '*';
+   wipeScreen();
+   console.log(num1);
+   console.log(operator)
     
 }
 
 divideButton.onclick = function(){
-    appendUserChoice(' ÷ ');
+    num1 = calcScreen.value;
+
+    operator = '/';
+   wipeScreen();
+   console.log(num1);
+   console.log(operator)
         
 }
 
-percentageButton.onclick = function(){
-    appendUserChoice(' % ');
+// percentageButton.onclick = function(){
+//     appendUserChoice(' % ');
     
-}
+// }
 
-openParenthesisButton.onclick = function(){
-    appendUserChoice('(');
+// openParenthesisButton.onclick = function(){
+//     appendUserChoice('(');
         
-}
+// }
 
-closeParenthesisButton.onclick = function(){
-    appendUserChoice(')');
+// closeParenthesisButton.onclick = function(){
+//     appendUserChoice(')');
             
-}
+// }
 
-pointButton.onclick = function(){
-    appendUserChoice('.');
+// pointButton.onclick = function(){
+//     appendUserChoice('.');
             
+// }
+
+equalButton.onclick = function(){
+    const num2 = calcScreen.value;
+    
+    operate(num1, num2, operator);
+    // let result = Function('return ' + equation)();
+    // console.log(result);
+    // calcScreen.value = result;
+    
+
+    
+
+
+
 }
-
-
    
 
 
 
 
 
-
-
-
-function replaceNum(){
+// functions to reset screen and append number
+function wipeScreen(){
     calcScreen.value = '';
 }
 
 function appendUserChoice(number) {
      if (calcScreen.value == '0'){
-        replaceNum();
+        wipeScreen();
      }
        
     calcScreen.value += number
   }
-
 
 
 function resetScreen(){
@@ -140,22 +178,39 @@ function resetScreen(){
   }
 
 
-function operate(num1, num2){
+
+// functions for operators
+
+
+function operate(num1, num2, operator){
+
+    let parse = num1.concat(operator, num2);
+    console.log(parse);
+
+     let result = Function('return ' + parse)();
+
+     console.log(result);
+
+     calcScreen.value = result;
+
      
   }
 
-function add(num1, num2){
-    return num1 + num2;
-}
 
-function subtract(num1, num2){
-    return num1 - num2;
-}
 
-function multiply(num1, num2){
-    return num1 * num2;
-}
 
-function divide(num1, num2){
-    return num1 / num2;
-}
+// function add(num1, num2){
+//     return num1 + num2;
+// }
+
+// function subtract(num1, num2){
+//     return num1 - num2;
+// }
+
+// function multiply(num1, num2){
+//     return num1 * num2;
+// }
+
+// function divide(num1, num2){
+//     return num1 / num2;
+// }
